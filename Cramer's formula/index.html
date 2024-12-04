@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+
+    <label for="a">a:</label>
+    <input type="number" id="a" placeholder="Enter first number">
+
+    <label for="b">b:</label>
+    <input type="number" id="b" placeholder="Enter first number">
+
+    <label for="e">e:</label>
+    <input type="number" id="e" placeholder="Enter first number">
+
+    <br>
+
+    <label for="c">c:</label>
+    <input type="number" id="c" placeholder="Enter second number">
+
+    <label for="d">d:</label>
+    <input type="number" id="d" placeholder="Enter second number">
+
+    <label for="f">f:</label>
+    <input type="number" id="f" placeholder="Enter second number">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <h3>
+        Δ : <span id="delta"></span><br>
+        Δx : <span id="delta_x"></span><br>
+        Δy : <span id="delta_y"></span><br>
+        x : <span id="x"></span><br>
+        y : <span id="y"></span>
+    </h3>
+
+    <script>
+    function calculate() {
+        // 获取输入值
+        const a = parseFloat(document.getElementById("a").value);
+        const b = parseFloat(document.getElementById("b").value);
+        const c = parseFloat(document.getElementById("c").value);
+        const d = parseFloat(document.getElementById("d").value);
+        const e = parseFloat(document.getElementById("e").value);
+        const f = parseFloat(document.getElementById("f").value);
+        let delta, delta_x, delta_y, x, y;
+
+        delta = a * d - b * c;
+        delta_x = e * d - b * f;
+        delta_y = a * f - e * c;
+        x = delta_x / delta;
+        y = delta_y / delta;
+        
+        // 显示结果
+        document.getElementById("delta").textContent = delta;
+        document.getElementById("delta_x").textContent = delta_x;
+        document.getElementById("delta_y").textContent = delta_y;
+        document.getElementById("x").textContent = x;
+        document.getElementById("y").textContent = y;
+    }
+    </script>
+</body>
+</html>
