@@ -4,43 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cramer's Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #007acc;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007acc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #005f99;
+        }
+
+        h3 {
+            margin-top: 20px;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        h3 span {
+            font-weight: bold;
+        }
+
+    </style>
 </head>
 <body>
     <h1>Cramer's Calculator</h1>
+    <div class="container">
+        <label for="a">a:</label>
+        <input type="number" id="a" placeholder="Enter first number">
 
-    <label for="a">a:</label>
-    <input type="number" id="a" placeholder="Enter first number">
+        <label for="b">b:</label>
+        <input type="number" id="b" placeholder="Enter second number">
 
-    <label for="b">b:</label>
-    <input type="number" id="b" placeholder="Enter first number">
+        <label for="e">e:</label>
+        <input type="number" id="e" placeholder="Enter third number">
 
-    <label for="e">e:</label>
-    <input type="number" id="e" placeholder="Enter first number">
+        <label for="c">c:</label>
+        <input type="number" id="c" placeholder="Enter fourth number">
 
-    <br>
+        <label for="d">d:</label>
+        <input type="number" id="d" placeholder="Enter fifth number">
 
-    <label for="c">c:</label>
-    <input type="number" id="c" placeholder="Enter second number">
+        <label for="f">f:</label>
+        <input type="number" id="f" placeholder="Enter sixth number">
 
-    <label for="d">d:</label>
-    <input type="number" id="d" placeholder="Enter second number">
+        <button onclick="calculate()">Calculate</button>
 
-    <label for="f">f:</label>
-    <input type="number" id="f" placeholder="Enter second number">
-
-    <button onclick="calculate()">Calculate</button>
-
-    <h3>
-        Δ : <span id="delta"></span><br>
-        Δx : <span id="delta_x"></span><br>
-        Δy : <span id="delta_y"></span><br>
-        x : <span id="x"></span><br>
-        y : <span id="y"></span>
-    </h3>
+        <h3>
+            Δ : <span id="delta"></span><br>
+            Δx : <span id="delta_x"></span><br>
+            Δy : <span id="delta_y"></span><br>
+            x : <span id="x"></span><br>
+            y : <span id="y"></span>
+        </h3>
+    </div>
 
     <script>
     function calculate() {
-        // 获取输入值
+        // Get input values
         const a = parseFloat(document.getElementById("a").value);
         const b = parseFloat(document.getElementById("b").value);
         const c = parseFloat(document.getElementById("c").value);
@@ -55,7 +122,7 @@
         x = delta_x / delta;
         y = delta_y / delta;
         
-        // 显示结果
+        // Display results
         document.getElementById("delta").textContent = delta;
         document.getElementById("delta_x").textContent = delta_x;
         document.getElementById("delta_y").textContent = delta_y;
